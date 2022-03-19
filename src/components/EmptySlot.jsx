@@ -1,20 +1,21 @@
-import { useEffect } from 'react'
-import moleHill from '../images/molehill.png'
+import React from "react";
+import { useEffect } from "react";
+import molehill from "../images/molehill.png";
 
-function EmptySlot({ setTheMole }) {
-    useEffect(() => {
-        let randomSecs = Math.round(Math.random() * 3000)
-        let timer = setTimeout(()=>{
-            setTheMole(true)
-        },  randomSecs)
+function EmptySlot({ handleClick, toggle }) {
+  useEffect(() => {
+    let randSeconds = Math.ceil(Math.random() * 5000);
+    let timer = setTimeout(() => {
+      toggle(true);
+    }, randSeconds);
+    return () => clearTimeout(timer);
+  });
 
-        return () => clearTimeout(timer)
-    })
   return (
-    <span>
-        <img src={moleHill} alt="Mole Image" style={{'width': '15vw'}}/>
-    </span>
-  )
+    <div className="container">
+      <img style={{ width: "15vw" }} src={molehill} onClick={handleClick} />
+    </div>
+  );
 }
 
-export default EmptySlot
+export default EmptySlot;

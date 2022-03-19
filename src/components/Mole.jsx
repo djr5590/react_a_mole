@@ -1,20 +1,20 @@
-import { useEffect } from 'react'
-import moleImg from '../images/mole.png'
+import React, { useEffect } from "react";
+import moleImg from "../images/mole.png";
 
-function Mole({ handleClick, setTheMole }) {
-    useEffect( () => {
-        let randomSecs = Math.round(Math.random() * 8000)
-        let timer = setTimeout(()=>{
-            setTheMole(false)
-        }, randomSecs)
+function Mole({ handleClick, toggle }) {
+  useEffect(() => {
+    let randSeconds = Math.ceil(Math.random() * 10000);
+    let timer = setTimeout(() => {
+      toggle(false);
+    }, randSeconds);
+    return () => clearTimeout(timer);
+  });
 
-        return () => clearTimeout(timer)
-    })
   return (
-    <span>
-        <img src={moleImg} alt="Mole Image" style={{'width': '15vw'}} onClick={handleClick} />
-    </span>
-  )
+    <div className="container">
+      <img style={{ width: "15vw" }} src={moleImg} onClick={handleClick} />
+    </div>
+  );
 }
 
-export default Mole
+export default Mole;

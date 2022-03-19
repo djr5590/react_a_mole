@@ -1,9 +1,10 @@
 import MoleContainer from "./components/MoleContainer";
 import { useState } from "react";
+
 import "./App.css";
 
 function App() {
-  // score
+  // State variable goes here (score)
   let [score, setScore] = useState(0);
   let number = 10;
 
@@ -28,4 +29,5 @@ function App() {
     </>
   );
 }
+
 export default App;
